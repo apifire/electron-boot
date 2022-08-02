@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2018",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "outDir": "build/node",
+    "rootDirs": ["./example"],
+    "strict": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "removeComments": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true
+  }
+}

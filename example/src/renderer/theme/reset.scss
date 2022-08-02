@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-family: "PingFang SC", "Source Han Sans", "\601D\6E90\9ED1\4F53", "Microsoft Yahei",
+  "WenQuanYi Micro Hei", "Arial", "sans-serif";
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#root {
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+}
+
+.app-icon {
+  width: var(--app-tool-text-size);
+  height: var(--app-tool-text-size);
+  color: #000000;
+}

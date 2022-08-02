@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  background: var(--app-loading-bg);
+  color: var(--app-loading-text);
+}
+
+body {
+  overflow: hidden !important;
+  font-size: var(--app-text-size);
+}
+
+.electron-drag {
+  -webkit-app-region: drag !important;
+}
+
+.electron-drag * {
+  -webkit-app-region: no-drag;
+}

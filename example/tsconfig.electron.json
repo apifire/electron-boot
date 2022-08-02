@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "es2018",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "outDir": "dist/electron",
+    "rootDirs": [
+      "./src/electron"
+    ],
+    "strict": false,
+    "sourceMap": true,
+    "inlineSources": true,
+    "removeComments": false,
+    "esModuleInterop": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["build","node_modules",
+    "src/renderer","vite.config.ts"
+  ]
+}

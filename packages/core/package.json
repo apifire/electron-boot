@@ -1,0 +1,41 @@
+{
+  "name": "@electron-boot/core",
+  "version": "0.0.0",
+  "description": "",
+  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm5/index.js",
+  "es2015": "./dist/esm2015/index.js",
+  "typings": "./dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:cjs",
+    "build:clean": "rimraf dist",
+    "build:es2015": "tsc --project tsconfig.prod.esm2015.json",
+    "build:esm5": "tsc --project tsconfig.prod.esm5.json",
+    "build:cjs": "tsc --project tsconfig.prod.cjs.json",
+    "build:types": "tsc --project tsconfig.prod.types.json"
+  },
+  "dependencies": {
+    "picomatch": "^2.3.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "electron": "^19.0.10",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "author": "RuffianLiu <876771120@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apifire/electron-boot.git"
+  },
+  "gitHead": "ab17f5735b961d3851c072632be17a2e48962b23"
+}

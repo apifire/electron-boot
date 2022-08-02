@@ -1,0 +1,27 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "useNx": false,
+  "version": "0.0.0",
+  "useWorkspaces": true,
+  "command": {
+    "bootstrap": {
+      "hoist": true,
+      "noCi": true,
+      "npmClientArgs": [
+        "--no-package-lock",
+        "--legacy-peer-deps"
+      ]
+    },
+    "publish": {
+      "ignoreChanges": [
+        "*.md",
+        "**/test/**",
+        "jest.config.js",
+        "jest.setup.js"
+      ]
+    }
+  },
+  "npmClient": "yarn"
+}
