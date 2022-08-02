@@ -1,5 +1,5 @@
 {
-  "name": "ae",
+  "name": "demo",
   "version": "1.0.0-beta.0",
   "description": "a fast development framework for electron",
   "main": "dist/electron/bootstrap.js",
@@ -54,12 +54,13 @@
     "vue-tsc": "^0.38.3"
   },
   "build": {
-    "productName": "ae",
-    "appId": "com.bianmapai.ae",
-    "asar": false,
+    "productName": "demo",
+    "appId": "com.electron.demo",
+    "copyright": "apifire.cn",
     "directories": {
       "output": "release"
     },
+    "asar": false,
     "files": [
       "dist"
     ],
@@ -69,6 +70,17 @@
         "to": "extraResources"
       }
     ],
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./build/icons/icon.ico",
+      "uninstallerIcon": "./build/icons/icon.ico",
+      "installerHeaderIcon": "./build/icons/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "demo"
+    },
     "mac": {
       "artifactName": "${productName}_${version}.${ext}",
       "target": [
@@ -92,17 +104,7 @@
         "deb"
       ],
       "category": "Utility"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowElevation": true,
-      "allowToChangeInstallationDirectory": true,
-      "installerIcon": "./build/icons/icon.ico",
-      "uninstallerIcon": "./build/icons/icon.ico",
-      "installerHeaderIcon": "./build/icons/icon.ico",
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "ae"
     }
-  }
+  },
+  "repository": "https://github.com/apifire/electron-boot.git"
 }

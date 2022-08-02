@@ -6,8 +6,8 @@ import * as updater from "@electron-boot/updater"
         updater
     ]
 })
-export class ApiTestApplication {
+export class DemoApplication {
     public static async main(...args:string[]){
-        await ElectronApplication.run(ApiTestApplication,args)
+        await ElectronApplication.run(DemoApplication,args)
     }
 }

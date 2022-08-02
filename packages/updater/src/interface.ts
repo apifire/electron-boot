@@ -1,3 +1,5 @@
+import {AllPublishOptions, PublishConfiguration} from "builder-util-runtime";
+
 /**
  * 设置配置文件的类型声明
  */
@@ -10,12 +12,14 @@ declare module "@electron-boot/core" {
  * 应用升级配置
  */
 export interface AutoUpdate {
-  windows:boolean,
-  macOs:boolean,
-  linux:boolean,
-  options:{
-    provider:string,
-    url:string,
-  },
+  options:PublishConfiguration | AllPublishOptions | string,
   force:boolean
+}
+
+export enum Status {
+  error=-1,
+  available=1,
+  noAvailable,
+  downloading,
+  downloaded
 }
