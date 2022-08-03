@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "apifire.cn",
+    "email": "876771120@qq.com"
+  },
   "license": "ISC",
   "scripts": {
     "dev": "yarn workspaces example run dev",

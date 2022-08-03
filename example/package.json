@@ -4,7 +4,10 @@
   "description": "a fast development framework for electron",
   "main": "dist/electron/bootstrap.js",
   "license": "ISC",
-  "author": "apiTest-team,Inc <876771120@qq.com>",
+  "author": {
+    "name": "apifire.cn",
+    "email": "876771120@qq.com"
+  },
   "keywords": [
     "electron",
     "fast electron",

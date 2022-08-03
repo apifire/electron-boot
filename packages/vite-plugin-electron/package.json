@@ -29,7 +29,10 @@
     "vite": "^3.0.3"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "apifire.cn",
+    "email": "876771120@qq.com"
+  },
   "license": "ISC",
   "gitHead": "ab17f5735b961d3851c072632be17a2e48962b23"
 }
