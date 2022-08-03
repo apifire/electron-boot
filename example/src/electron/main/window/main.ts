@@ -1,4 +1,4 @@
-import {app, BrowserWindowConstructorOptions} from "electron";
+import {app, BrowserWindowConstructorOptions, screen} from "electron";
 import {Autowired, BaseWindow, ElectronContainer, Window} from "@electron-boot/core";
 import {join} from "path";
 
@@ -12,16 +12,24 @@ export class MainWindow extends BaseWindow{
     private rendererDir:string
     // 窗口名称
     name: string = "mainWindow";
-    // 设计宽度
-    protected DESIGN_MAIN_WIDTH: number= 1700;
     // 设计高度
     protected DESIGN_MAIN_HEIGHT: number = 850;
     // 配置加载文件
     protected preload:string
     // 配置信息
-    protected conf = {
-        titleBarStyle:"hidden"
-    } as BrowserWindowConstructorOptions
+    // 配置信息
+    protected get conf():BrowserWindowConstructorOptions{
+        const size = screen.getPrimaryDisplay().bounds ?? {
+            width:1920,
+            height:1080,
+        }
+        return {
+            titleBarStyle:"hidden",
+            width:1300,
+            minWidth:parseInt(String(size.width * 0.5),10),
+            minHeight:parseInt(String(size.height*0.55),10)
+        }
+    }
     // 构造函数
     constructor(readonly applicationContext:ElectronContainer) {
         super();

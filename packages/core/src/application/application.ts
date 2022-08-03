@@ -123,6 +123,7 @@ export class ElectronApplication {
     applicationContext.bindObject("appDir",appDir)
     applicationContext.bindObject("rendererDir",rendererDir)
     applicationContext.bindObject("scanDir", scanDir);
+    applicationContext.bindObject("app",this)
 
     // 如果设置了模块扫描器
     if (globalOptions.moduleDetector !== false) {
@@ -228,7 +229,7 @@ export class ElectronApplication {
     // 如果配置了单例运行
     if (configService.getConfiguration("singleInstance")===true){
       if (!app.requestSingleInstanceLock()){
-        app.quit()
+        await this.appQuit()
         process.exit(0)
       }
     }
@@ -247,7 +248,7 @@ export class ElectronApplication {
     })
     // 所有的窗口关闭事件
     app.on('window-all-closed', () => {
-      if (process.platform !== 'darwin') app.quit()
+      if (process.platform !== 'darwin') this.appQuit()
     })
     // 窗口活动事件监听
     app.on('activate', () => {
@@ -418,6 +419,23 @@ export class ElectronApplication {
     await this.initElectron()
     // 设置系统级别控制
     await this.initIpc()
+  }
+
+  /**
+   * 应用退出
+   */
+  private async beforeClose(){
+    // 获取生命周期
+    const lifeCycleService =await this.applicationContext.getAsync(LifeCycleService, [this.applicationContext]);
+    // 停止
+    await lifeCycleService.stop()
+  }
+
+  /**
+   * 应用退出
+   */
+  async appQuit(){
+    await this.beforeClose()
   }
 
   // 应用启动方法

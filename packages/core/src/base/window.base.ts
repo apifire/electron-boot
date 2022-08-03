@@ -29,9 +29,9 @@ export abstract class BaseWindow extends events implements IBrowserWindow{
   // 当前窗体设计时电脑的高度
   protected BASE_WIN_HEIGHT = 1080;
   // 设计宽度
-  protected abstract DESIGN_MAIN_WIDTH:number
+  protected DESIGN_MAIN_WIDTH:number
   // 设计高度
-  protected abstract DESIGN_MAIN_HEIGHT:number
+  protected DESIGN_MAIN_HEIGHT:number
   // 窗口打开的地址
   protected abstract url:string
   // preload地址
@@ -46,10 +46,20 @@ export abstract class BaseWindow extends events implements IBrowserWindow{
     if (this.windowsInstance) this.windowsInstance=null
     // 计算窗口
     const rect = screen.getPrimaryDisplay().bounds;
-    this.conf.width = Math.ceil((rect.width / this.BASE_WIN_WIDTH) * this.DESIGN_MAIN_WIDTH);
-    this.conf.height = Math.ceil((rect.height / this.BASE_WIN_HEIGHT) * this.DESIGN_MAIN_HEIGHT);
+    let size = {} as {
+      width:number
+      height:number
+    }
+    // 没有设置宽度
+    if (!this.conf.width && this.DESIGN_MAIN_WIDTH) {
+      size.width = Math.ceil((rect.width / this.BASE_WIN_WIDTH) * this.DESIGN_MAIN_WIDTH);
+    }
+    // 没有设置高度
+    if (!this.conf.height && this.DESIGN_MAIN_HEIGHT){
+      size.height = Math.ceil((rect.height / this.BASE_WIN_HEIGHT) * this.DESIGN_MAIN_HEIGHT);
+    }
     // 重载配置
-    const conf = Object.assign({},this.defaultConf,this.conf)
+    const conf = Object.assign({},this.defaultConf,this.conf,size)
     // 如果设置preload
     if (this.preload){
       conf.webPreferences.preload = this.preload

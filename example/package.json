@@ -23,7 +23,7 @@
     "build:renderer": "vue-tsc --noEmit --skipLibCheck && vite build",
     "build-w": "vue-tsc --noEmit && vite build  && electron-builder -w --ia32",
     "build-w-64": "vue-tsc --noEmit && vite build  && electron-builder -w --x64",
-    "build-m": "vue-tsc --noEmit && vite build &&  && electron-builder -m",
+    "build-m": "vue-tsc --noEmit && vite build && electron-builder -m",
     "build-m-arm64": "vue-tsc --noEmit && vite build  && electron-builder -m --arm64",
     "build-l": "vue-tsc --noEmit && vite build  && electron-builder -l"
   },

@@ -1,13 +1,11 @@
-import {AppInfo, ElectronBootConfig, IElectronContainer} from "@electron-boot/core";
-import {app, BrowserWindow, KeyboardEvent, MenuItem, MenuItemConstructorOptions} from "electron";
+import {ElectronBootConfig, IElectronContainer} from "@electron-boot/core";
+import {app, BrowserWindow, MenuItem, MenuItemConstructorOptions} from "electron";
 
-const isMac = process.platform === "darwin"
 /**
  * 应用配置文件
  * @param appContext
- * @param appInfo
  */
-export default (appContext:IElectronContainer,appInfo:AppInfo):ElectronBootConfig=>{
+export default (appContext:IElectronContainer):ElectronBootConfig=>{
   return {
     menu:[
       {
@@ -115,7 +113,7 @@ export default (appContext:IElectronContainer,appInfo:AppInfo):ElectronBootConfi
           },
           {
             label: "切换全屏",
-            click:(menuItem:MenuItem,browserWindow:BrowserWindow|undefined,event:KeyboardEvent)=>{
+            click:(menuItem:MenuItem,browserWindow:BrowserWindow|undefined)=>{
               if (browserWindow?.isFullScreen()){
                 browserWindow?.setFullScreen(false)
               }else{
@@ -169,12 +167,10 @@ export default (appContext:IElectronContainer,appInfo:AppInfo):ElectronBootConfi
     ],
     openDevTools: false,
     autoUpdater:{
-      windows:true,
-      macOs:true,
-      linux:true,
+      autoCheck:true,
       options:{
         provider:"generic",
-        url:"http://kodo.qiniu.com/"
+        url:"http://rg18s320a.hn-bkt.clouddn.com/"
       },
       force:false
     }
