@@ -82,13 +82,13 @@
       "shortcutName": "demo"
     },
     "mac": {
-      "artifactName": "${productName}_${version}.${ext}",
+      "artifactName": "${productName}-mac-${arch}-${version}.${ext}",
       "target": [
         "dmg"
       ]
     },
     "win": {
-      "artifactName": "${productName}-windows-${version}.${ext}",
+      "artifactName": "${productName}-windows-${arch}-${version}.${ext}",
       "target": [
         {
           "target": "nsis",
@@ -99,7 +99,7 @@
       ]
     },
     "linux": {
-      "artifactName": "${productName}-linux-${version}.${ext}",
+      "artifactName": "${productName}-linux-${arch}-${version}.${ext}",
       "target": [
         "deb"
       ],
