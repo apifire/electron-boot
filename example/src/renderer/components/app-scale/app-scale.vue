@@ -190,7 +190,7 @@ export default defineComponent({
       const splitterIndex = itemIndex - 1;
       const elm = document.createElement("div");
       elm.classList.add(appScaleSplitClass);
-      // 如果是第一个
+      // 如果第一个也添加分割器
       if (isFirst) {
         elm.onmousedown = (event) => onMouseDown(event, splitterIndex);
         if (typeof window !== "undefined" && "ontouchstart" in window) {
