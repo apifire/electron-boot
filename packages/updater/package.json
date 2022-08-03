@@ -1,6 +1,6 @@
 {
   "name": "@electron-boot/updater",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "",
   "sideEffects": false,
   "main": "./dist/cjs/index.js",
@@ -22,7 +22,7 @@
     "build:types": "tsc --project tsconfig.prod.types.json"
   },
   "dependencies": {
-    "@electron-boot/core": "^1.0.0-beta.2",
+    "@electron-boot/core": "^1.0.0-beta.3",
     "electron-updater": "^5.0.5"
   },
   "devDependencies": {

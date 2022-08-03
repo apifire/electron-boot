@@ -3,7 +3,7 @@
     "packages/*"
   ],
   "useNx": false,
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "useWorkspaces": true,
   "command": {
     "bootstrap": {
@@ -21,6 +21,11 @@
         "jest.config.js",
         "jest.setup.js"
       ]
+    },
+    "version": {
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "forcePublish": "@electron-boot/version"
     }
   },
   "npmClient": "yarn"
