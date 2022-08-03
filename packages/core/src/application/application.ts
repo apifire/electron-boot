@@ -230,7 +230,6 @@ export class ElectronApplication {
     if (configService.getConfiguration("singleInstance")===true){
       if (!app.requestSingleInstanceLock()){
         await this.appQuit()
-        process.exit(0)
       }
     }
     // 禁用window7的gpu加速
@@ -248,7 +247,7 @@ export class ElectronApplication {
     })
     // 所有的窗口关闭事件
     app.on('window-all-closed', () => {
-      if (process.platform !== 'darwin') this.appQuit()
+      this.appQuit()
     })
     // 窗口活动事件监听
     app.on('activate', () => {
@@ -436,6 +435,9 @@ export class ElectronApplication {
    */
   async appQuit(){
     await this.beforeClose()
+    app.quit()
+    app.exit(0)
+    process.exit(0)
   }
 
   // 应用启动方法
