@@ -15,7 +15,9 @@ export class MainWindow extends BaseWindow{
     // 设计高度
     protected DESIGN_MAIN_HEIGHT: number = 850;
     // 配置加载文件
-    protected preload:string
+    protected get preload():string{
+        return join(this.appDir,"dist/electron/preload/main.js")
+    }
     // 配置信息
     // 配置信息
     protected get conf():BrowserWindowConstructorOptions{

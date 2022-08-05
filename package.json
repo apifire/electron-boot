@@ -9,14 +9,15 @@
   },
   "license": "ISC",
   "scripts": {
-    "dev": "yarn workspaces example run dev",
-    "clear:dep": "lerna clean && rimraf node_modules",
+    "dev": "yarn workspace example run dev",
+    "clean": "lerna clean && rimraf node_modules",
     "build": "yarn run build:clean && yarn run build:types && yarn run build:es2015 && yarn run build:esm5 && yarn run build:cjs",
     "build:clean": "yarn workspaces run build:clean",
     "build:es2015": "yarn workspaces run build:es2015",
     "build:esm5": "yarn workspaces run build:esm5",
     "build:cjs": "yarn workspaces run build:cjs",
-    "build:types": "yarn workspaces run build:types"
+    "build:types": "yarn workspaces run build:types",
+    "version": "node ./scripts/generate_rollback.js && node ./scripts/generate_version.js"
   },
   "private": true,
   "workspaces": [
