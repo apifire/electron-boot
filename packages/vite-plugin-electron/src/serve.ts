@@ -1,7 +1,7 @@
-import {Configuration} from "./types";
-import {ViteDevServer} from "vite";
-import {spawn} from "child_process";
-import {AddressInfo} from "net";
+import {Configuration} from './types';
+import {ViteDevServer} from 'vite';
+import {spawn} from 'child_process';
+import {AddressInfo} from 'net';
 
 const tscWatchClient = require("tsc-watch/client")
 const watch = new tscWatchClient()
@@ -11,10 +11,6 @@ export async function bootstrap(config:Configuration,server:ViteDevServer){
   const { config:ViteConfig } = server
 
   const address = server.httpServer.address() as AddressInfo
-  const env = Object.assign(process.env,{
-    VITE_DEV_SERVER_HOST: address.address,
-    VITE_DEV_SERVER_PORT: address.port,
-  })
 
   watch.on('started', () => {
     console.log('Compilation started');
@@ -25,6 +21,11 @@ export async function bootstrap(config:Configuration,server:ViteDevServer){
   });
 
   watch.on('success', () => {
+    server.printUrls()
+    const env = Object.assign(process.env,{
+      VITE_LOCAL_SERVER_URL:(server.resolvedUrls?.local[0].length>0) ? (server.resolvedUrls?.local[0]): "",
+      VITE_NETWORK_SERVER_URL:(server.resolvedUrls?.network[0].length>0) ? (server.resolvedUrls?.network[0]): ""
+    })
     if (process.electronApp){
       process.electronApp.removeAllListeners()
       process.electronApp.kill()
